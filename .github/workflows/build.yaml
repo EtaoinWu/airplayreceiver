@@ -60,10 +60,12 @@ jobs:
       if: matrix.os != 'windows-latest'
       run: |
         git clone https://github.com/mikebrady/alac.git
+        git clone https://github.com/GiteKat/LibALAC.git
         cd alac
-        wget https://github.com/GiteKat/LibALAC/tree/master/LibALAC -P codec
-        cp ../makefile.original.new makefile.original
-        cp ../makefile.am.new makefile.am
+        rm -rf codec
+        cp -r ../LibALAC/LibALAC codec
+        cp ../makefile.original.new codec/makefile.original
+        cp ../makefile.am.new codec/Makefile.am
         autoreconf -fi
         ./configure
         make
@@ -73,10 +75,12 @@ jobs:
       shell: msys2 {0}
       run: |
         git clone https://github.com/mikebrady/alac.git
+        git clone https://github.com/GiteKat/LibALAC.git
         cd alac
-        wget https://github.com/GiteKat/LibALAC/tree/master/LibALAC -P codec
-        cp ../makefile.original.new makefile.original
-        cp ../makefile.am.new makefile.am
+        rm -rf codec
+        cp -r ../LibALAC/LibALAC codec
+        cp ../makefile.original.new codec/makefile.original
+        cp ../makefile.am.new codec/Makefile.am
         autoreconf -fi
         ./configure
         make
