@@ -62,8 +62,7 @@ jobs:
         git clone https://github.com/mikebrady/alac.git
         git clone https://github.com/GiteKat/LibALAC.git
         cd alac
-        rm -rf codec
-        cp -r ../LibALAC/LibALAC codec
+        cp -r ../LibALAC/LibALAC/* codec/
         cp ../makefile.original.new codec/makefile.original
         cp ../makefile.am.new codec/Makefile.am
         autoreconf -fi
@@ -77,8 +76,7 @@ jobs:
         git clone https://github.com/mikebrady/alac.git
         git clone https://github.com/GiteKat/LibALAC.git
         cd alac
-        rm -rf codec
-        cp -r ../LibALAC/LibALAC codec
+        cp -r ../LibALAC/LibALAC/* codec/
         cp ../makefile.original.new codec/makefile.original
         cp ../makefile.am.new codec/Makefile.am
         autoreconf -fi
