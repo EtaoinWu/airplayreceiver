@@ -31,6 +31,8 @@ jobs:
         autoreconf -fi
         ./configure
         make
+        mkdir .libs
+        cp ./libfdk-aac.so .libs/
 
     - name: Build fdk-aac (macOS)
       if: matrix.os == 'macos-latest'
@@ -41,6 +43,8 @@ jobs:
         autoreconf -fi
         ./configure
         make
+        mkdir .libs
+        cp ./libfdk-aac.dylib .libs/
 
     - name: Set up MSYS (Windows)
       if: matrix.os == 'windows-latest'
@@ -49,6 +53,8 @@ jobs:
         update: true
         install: >-
           base-devel
+          git
+          wget
           autoconf
           automake
           libtool
@@ -63,6 +69,8 @@ jobs:
         autoreconf -fi
         ./configure
         make
+        mkdir .libs
+        cp ./libfdk-aac.dll .libs/
 
     - name: Build ALAC (Linux/macOS)
       if: matrix.os != 'windows-latest'
