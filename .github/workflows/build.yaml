@@ -99,17 +99,17 @@ jobs:
       run: |
         dotnet build AirPlay/AirPlay.csproj --configuration Release
 
-    - name: Bundle artifacts
-      run: |
-        mkdir -p artifacts/debug
-        mkdir -p artifacts/release
-        cp AirPlay/bin/Debug/netcoreapp2.2/* artifacts/debug/
-        cp AirPlay/bin/Release/netcoreapp2.2/* artifacts/release/
-        cp fdk-aac/.libs/* artifacts/
-        cp alac/.libs/* artifacts/
+    # - name: Bundle artifacts
+    #   run: |
+    #     mkdir -p artifacts/debug
+    #     mkdir -p artifacts/release
+    #     cp AirPlay/bin/Debug/netcoreapp2.2/* artifacts/debug/
+    #     cp AirPlay/bin/Release/netcoreapp2.2/* artifacts/release/
+    #     cp fdk-aac/.libs/* artifacts/
+    #     cp alac/.libs/* artifacts/
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: airplay-${{ matrix.os }}
-        path: artifacts/
+        path: ./
